@@ -321,8 +321,13 @@ public class Process {
 
             do {
                 printProductOrder();
-                System.out.print("Chose:");
-                chose = sc.nextInt();
+                do {
+                    System.out.print("Chose:");
+                    chose = sc.nextInt();
+                    if (chose < 1 || chose > products.size() ) {
+                        System.out.println("Input invalid");
+                    }
+                } while (chose < 1 || chose > products.size() );
 
                 Product product = getProductByNo(chose);
 
