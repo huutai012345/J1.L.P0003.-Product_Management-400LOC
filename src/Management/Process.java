@@ -145,7 +145,18 @@ public class Process {
         } while (this.checkContinue());
 
     }
-
+    
+    public boolean checkDeleteCate(String id)
+    {
+        for (Product product : products) {
+            if(product.getIdCate().equals(id))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public void deleteCate() {
         Scanner sc = new Scanner(System.in);
         do {
@@ -162,7 +173,11 @@ public class Process {
                 if (cate == null) {
                     System.out.println("Cate does not exist");
                 }
-            } while (cate == null);
+                if(!checkDeleteCate(idCate))
+                {
+                    System.out.println("Cate is referenced in Product List");
+                }
+            } while (cate == null || !checkDeleteCate(idCate));
 
             if (this.checkDelete()) {
                 this.categorys.remove(cate);
