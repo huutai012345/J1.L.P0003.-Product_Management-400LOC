@@ -102,7 +102,7 @@ public class Product {
 
         System.out.print("Enter Price Product: ");
         this.price = sc.nextFloat();
-        if (pricePro < 0) {
+        if (pricePro > 0) {
             this.price = pricePro;
         } else {
             System.out.println("Fail");
@@ -111,7 +111,7 @@ public class Product {
 
         System.out.print("Enter Quantity Product: ");
         quantityPro = sc.nextInt();
-        if (quantityPro < -1) {
+        if (quantityPro > 0) {
             this.quantity = quantityPro;
         } else {
             System.out.println("Fail");
